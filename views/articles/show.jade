@@ -1,0 +1,18 @@
+extends ../layouts/application
+
+block content
+  style.
+    header {
+      background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(#{summary.image});
+    }
+  header
+    .full
+      .wrap
+        .col-10
+          h3=summary.title
+          .pull-right
+            a(href=summary.link target="_blank")
+              i.fa.fa-external-link-square.fa-2x
+  .wrap
+    .col-8
+      p= summary.summary

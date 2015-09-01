@@ -1,0 +1,9 @@
+extends ../layouts/application
+
+block content
+  .wrap
+    .col-10
+      for article in articles
+        a.article(href="/articles/" + article._id)
+          img.image(src=article.image)
+          .title=article.title

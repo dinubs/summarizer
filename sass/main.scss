@@ -1,0 +1,197 @@
+@import 'bourbon';
+@import 'neat';
+
+$bright: #EB7F00;
+$light: #1695A3;
+$lighter: #ACF0F2;
+$dark: #225378;
+$white: #F3FFE2;
+
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  position: relative;
+}
+
+$nav-height: 64px;
+
+html {
+  min-height: 100%;
+}
+
+body {
+  font-family: Verdana, sans-serif;
+  padding-top: $nav-height;
+  position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+}
+
+nav {
+  position: fixed;
+  top: 0;left:0;
+  width: 100%;
+  height: $nav-height;
+  z-index: 9999;
+  @include transition(all 0.3s);
+  box-shadow: 0px 1px 5px rgba(black, 0.5);
+  background-color: #fff;
+  
+  .wrap {
+    background-color: transparent;
+    padding: 0;
+  }
+  .logo {
+    letter-spacing: 2px;
+    font-size: 20px;
+  }
+  a {
+    padding: 0 15px;
+    line-height: $nav-height;
+    color: $dark;
+    display: inline-block;
+    border-bottom: 1px solid transparent;
+    text-decoration: none;
+    &:after {
+      content: '';
+      width: 100%;
+      height: 0px;
+      position: absolute;
+      left: 0;
+      bottom: 0;
+      background-color: transparent;
+      border-radius: 1px;
+      @include transition(all 0.3s);
+    }
+    &:hover:after, &.active:after {
+      background-color: $dark;
+      height: 3px;
+    }
+  }
+  ul {
+    list-style: none;
+    float: right;
+    li {
+      display: inline-block;
+    }
+  } 
+}
+
+header {
+  height: 400px;
+  max-height: calc(100% - #{$nav-height});
+  width: 100%;
+  color: #fff;
+  background-position: center;
+  background-size: cover;
+  
+  .full {
+    background-color: rgba(0,0,0,0.5);
+    // padding: 20px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    line-height: 90px;
+  }
+
+  h3 {
+    float: left;
+    display: inline-block;
+    margin: 0 10px 0 0;
+  }
+}
+
+.home {
+  background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(https://static.pexels.com/photos/7354/startup-photos.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  .wrap {
+    color: #fff;
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    @include transform(translate(-50%, -50%));
+  }
+}
+
+.wrap {
+  @include outer-container;
+}
+
+a {
+  color: $light;
+  @include transition(all 0.3s);
+  &:hover {
+    color: darken($light, 5);
+  }
+}
+
+@for $i from 1 through 12 {
+    .col-#{$i} {
+        @include span-columns($i);
+        @include shift((12 - $i) / 2);
+    }
+}
+
+p {
+  line-height: 1.5em;
+  padding: 15px;
+}
+
+input, button {
+  padding: 15px;
+  border-radius: 10px;
+  margin: 10px;
+  border: none;
+}
+
+input {
+  min-width: 200px;
+}
+
+button {
+  background-color: $light;
+  color: #fff;
+  min-width: 150px;
+  cursor: pointer;
+  @include transition(all 0.3s);
+
+  &:hover {
+    background-color: darken($light, 5);
+  } 
+}
+
+.pull-right {
+  float: right;
+}
+
+.article {
+  @include span-columns(4);
+  overflow: hidden;
+  margin-top: 25px;
+  color: #000;
+  text-decoration: none;
+  background-color: darken(#fff, 5);
+  border-radius: 10px;
+
+  img {
+    margin: 0 auto;
+    width: auto;
+    height: 200px;
+    object-fit: contain;
+    @includetransition(all 0.3s);
+  }
+  &:hover {
+    img {
+      opacity: 0.8;
+    }
+  }
+  .title {
+    padding: 10px;
+    height: 75px;
+
+  }
+}

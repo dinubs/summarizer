@@ -1,0 +1,10 @@
+extends ../layouts/application
+
+block content
+  .home
+    .wrap
+      h2 Enter the URL to an article and get it summarized.
+      p Quickly and easily get an article summarized with this simple tool.
+      form(method='POST' action='/articles')
+        input(name='url' type='url' required id='url' autocomplete='off' placeholder='http://')
+        button(type='submit') Summarize
