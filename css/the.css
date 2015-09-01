@@ -269,9 +269,6 @@ button {
   height: 200px; }
   .article:not(:nth-of-type(2n)) {
     margin-right: 8px; }
-  .article:last-of-type:not(:nth-of-type(2n)) {
-    margin: 4px auto;
-    float: none; }
   .article img {
     position: absolute;
     top: 0;

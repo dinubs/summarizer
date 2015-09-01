@@ -178,11 +178,6 @@ button {
     margin-right: 8px;
   }
 
-  &:last-of-type:not(:nth-of-type(2n)) {
-    margin: 4px auto;
-    float: none;
-  }
-
   overflow: hidden;
   color: #000;
   text-decoration: none;
