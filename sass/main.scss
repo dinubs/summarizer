@@ -169,30 +169,54 @@ button {
 }
 
 .article {
-  @include span-columns(4);
+  display: block;
+  float: left;
+  width: calc(50% - 4px);
+  margin: 4px 0;
+
+  &:not(:nth-of-type(2n)) {
+    margin-right: 8px;
+  }
+
+  &:last-of-type:not(:nth-of-type(2n)) {
+    margin: 4px auto;
+    float: none;
+  }
+
   overflow: hidden;
-  margin-top: 25px;
   color: #000;
   text-decoration: none;
   background-color: darken(#fff, 5);
-  border-radius: 10px;
   min-width: 280px;
+  height: 200px;
 
   img {
+    position: absolute;
+    top: 0;
+    left: 0;
     margin: 0 auto;
-    width: auto;
-    height: 200px;
-    object-fit: contain;
-    @includetransition(all 0.3s);
+    width: 100%;
+    object-fit: cover;
+    @include transition(all 0.3s);
+    @include transform(scale(1));
   }
   &:hover {
     img {
-      opacity: 0.8;
+      @include transform(scale(1.1));
+    }
+    .title {
+      padding-left: 12px;
+      padding-right: 8px;
     }
   }
   .title {
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0,0,0,0.3);
+    color: #fff;
     padding: 10px;
-    height: 75px;
-
+    min-height: 75px;
+    width: 100%;
+    @include transition(all 0.3s);
   }
 }
